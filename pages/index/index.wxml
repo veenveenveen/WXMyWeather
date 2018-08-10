@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<image src='../../assets/weather_bg.png' class='bg'></image>
+<view class='container'>
+  <view class='nowWeather'>
+    <view class='w'>{{city}} {{district}}</view>
+    <view class='w'>{{street}}</view>
+    <view class='w temp'>{{temp}}°</view>
+    <view class='w'>{{cond_txt}} | 空气质量 未知</view>
+  </view>
+
+  <view class='weatherDetail'>
+    <view class=''>
+      <view class='w center'>风级</view>
+      <view class='w center'>{{wind_sc}}级</view>
+    </view>
+    <view class='line'></view>
+    <view class=''>
+      <view class='w center'>相对湿度</view>
+      <view class='w center'>{{hum}}%</view>
+    </view>
+    <view class='line'></view>
+    <view class=''>
+      <view class='w center'>体感温度</view>
+      <view class='w center'>{{fl}}°</view>
+    </view>
+  </view>
+</view>
+
+<view wx:for="{{daily_forecast}}" wx:key="daily_forecast" wx:for-index="i" wx:for-item="item">
+  <view class='forcast'>
+    <view class="center">{{day[i]}}</view>
+    <view class="hor">
+      <image class="img" src="../../assets/cond_icon/{{item.cond_code_d}}.png"></image>
+      <view class="center">{{item.cond_txt_d}} | 未知</view>
+    </view>
+    <view class="center">{{item.tmp_min}}° / {{item.tmp_max}}°</view>
+  </view>
+</view>
+
