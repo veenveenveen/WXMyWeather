@@ -1,0 +1,31 @@
+<!--pages/lifeStyle.wxml-->
+<view class='' wx:for="{{lifestyle}}" wx:key="lifestyle" wx:for-index='i' wx:for-item='item'>
+  <view class='lifeView'>
+    <view class='lifeCell'>
+      <view class=''>{{styletype[i][0]}}</view>
+      <view class=''>{{item[0].brf}}</view>
+      <view class='left'>{{item[0].txt}}</view>
+    </view>
+    <view class='lifeCell'>
+      <view class=''>{{styletype[i][1]}}</view>
+      <view class=''>{{item[1].brf}}</view>
+      <view class='left'>{{item[1].txt}}</view>
+    </view>
+  </view>
+</view>
+
+    <!-- <view class='lifeCell'>
+      <view class=''>{{item.type}}</view>
+      <view class=''>{{item.brf}}</view>
+      <view class=''>{{item.txt}}</view>
+    </view>
+    <view class='lifeCell'>
+      <view class=''>{{item.type}}</view>
+      <view class=''>{{item.brf}}</view>
+      <view class=''>{{item.txt}}</view>
+    </view>
+    <view class='lifeCell'>
+      <view class=''>{{item.type}}</view>
+      <view class=''>{{item.brf}}</view>
+      <view class=''>{{item.txt}}</view>
+    </view> -->

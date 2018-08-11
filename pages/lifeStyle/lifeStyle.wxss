@@ -1,0 +1,37 @@
+/* pages/lifeStyle.wxss */
+
+.left {
+  text-align: left;
+}
+
+.lifeView {
+/* border: 1rpx solid black; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 25rpx;
+  font-weight: 200;
+}
+
+.lifeCell {
+  border: 1rpx solid lightgray;
+  width: 50%;
+  height: 200rpx;
+  padding: 15rpx;
+}
+
+.todayDetail {
+  width: 50%;
+  /* border: 1rpx solid black; */
+} 
+
+.todayDetailTopText {
+  font-size: 20rpx;
+  font-weight: 100rpx; 
+} 
+
+.todayDetailBottomText {
+  font-size: 40rpx;
+  font-weight: normal; 
+} 

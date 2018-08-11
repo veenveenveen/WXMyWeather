@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/lifeStyle/lifeStyle",
     "pages/logs/logs"
   ],
   "window":{
@@ -9,5 +10,22 @@
     "navigationBarTitleText": "MyWeather",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#C8C8C8",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "position": "bottom",
+    "selectedColor": "#434343",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "天气"
+      },
+      {
+        "pagePath": "pages/lifeStyle/lifeStyle",
+        "text": "生活指数"
+      }
+    ]
   }
 }

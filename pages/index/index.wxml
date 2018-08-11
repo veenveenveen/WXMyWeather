@@ -1,39 +1,85 @@
 <!--index.wxml-->
+<!-- <scroll-view scroll-y='true' class='scrollContainer'> -->
 <image src='../../assets/weather_bg.png' class='bg'></image>
 <view class='container'>
   <view class='nowWeather'>
     <view class='w'>{{city}} {{district}}</view>
     <view class='w'>{{street}}</view>
     <view class='w temp'>{{temp}}°</view>
-    <view class='w'>{{cond_txt}} | 空气质量 未知</view>
+    <view class='w'>{{cond_txt}} | 空气质量 {{qlty}}</view>
   </view>
 
   <view class='weatherDetail'>
-    <view class=''>
-      <view class='w center'>风级</view>
-      <view class='w center'>{{wind_sc}}级</view>
+    <view class='weatherPer'>
+      <view class='w textCenter'>风级</view>
+      <view class='w textCenter'>{{wind_sc}}级</view>
     </view>
-    <view class='line'></view>
-    <view class=''>
-      <view class='w center'>相对湿度</view>
-      <view class='w center'>{{hum}}%</view>
+    <view class='lineLeft'></view>
+    <view class='weatherPer'>
+      <view class='w textCenter'>相对湿度</view>
+      <view class='w textCenter'>{{hum}}%</view>
     </view>
-    <view class='line'></view>
-    <view class=''>
-      <view class='w center'>体感温度</view>
-      <view class='w center'>{{fl}}°</view>
+    <view class='lineLeft'></view>
+    <view class='weatherPer'>
+      <view class='w textCenter'>体感温度</view>
+      <view class='w textCenter'>{{fl}}°</view>
     </view>
   </view>
+</view>
+
+<view>
+  <view class='title'>24小时天气</view>
+  <scroll-view class='scroll' scroll-x='true'>
+    <view class='scrollChild' wx:for="{{hourStatus}}" wx:key="hourStatus" wx:for-index='i' wx:for-item='item'>
+      <view class='textCenter'>{{i}}</view>
+      <image class='scrollImg' mode="aspectFit" src="../../assets/cond_icon/100.png"></image>
+      <view class='textCenter'>{{item}}</view>
+    </view>
+  </scroll-view>
 </view>
 
 <view wx:for="{{daily_forecast}}" wx:key="daily_forecast" wx:for-index="i" wx:for-item="item">
   <view class='forcast'>
-    <view class="center">{{day[i]}}</view>
-    <view class="hor">
-      <image class="img" src="../../assets/cond_icon/{{item.cond_code_d}}.png"></image>
-      <view class="center">{{item.cond_txt_d}} | 未知</view>
-    </view>
-    <view class="center">{{item.tmp_min}}° / {{item.tmp_max}}°</view>
+    <view class="forcastL textCenter">{{day[i]}}</view>
+    <image class="forcastImg" mode="aspectFit" src="../../assets/cond_icon/{{item.cond_code_d}}.png"></image>
+    <view class="forcastC textCenter">{{item.cond_txt_d}}</view>
+    <view class="forcastR textCenter">{{item.tmp_min}} / {{item.tmp_max}}</view>
   </view>
 </view>
 
+<view class='line'></view>
+<view class='todayText'>
+  <text>今天：{{daily_forecast[0].cond_txt_d}}，热指数{{fl}}°，最高{{daily_forecast[0].tmp_max}}°。今晚{{daily_forecast[0].cond_txt_n}}，最低气温{{daily_forecast[0].tmp_min}}°。</text>
+</view>
+<view class='line'></view>
+
+<view class='' wx:for="{{today}}" wx:key="today" wx:for-index='i' wx:for-item='item'>
+  <view wx:if="{{i !== 0}}" class='topLine'></view>
+  <view class='today'>
+    <view class='todayDetail'>
+      <view class='todayDetailTopText'>{{item[0][0]}}</view>
+      <view class='todayDetailBottomText'>{{item[0][1]}}</view>
+    </view>
+    <view class='todayDetail'>
+      <view class='todayDetailTopText'>{{item[1][0]}}</view>
+      <view class='todayDetailBottomText'>{{item[1][1]}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- [["空气质量指数", "未知"], ["空气质量", "未知"]] -->
+<view>
+  <view class='topLine'></view>
+  <view class='today'>
+    <view class='todayDetail'>
+      <view class='todayDetailTopText'>空气质量指数</view>
+      <view class='todayDetailBottomText'>{{aqi}}</view>
+    </view>
+    <view class='todayDetail'>
+      <view class='todayDetailTopText'>空气质量</view>
+      <view class='todayDetailBottomText'>{{qlty}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- </scroll-view> -->
