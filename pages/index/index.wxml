@@ -30,17 +30,17 @@
 <view>
   <view class='title'>24小时天气</view>
   <scroll-view class='scroll' scroll-x='true'>
-    <view class='scrollChild' wx:for="{{hourStatus}}" wx:key="hourStatus" wx:for-index='i' wx:for-item='item'>
-      <view class='textCenter'>{{i}}</view>
-      <image class='scrollImg' mode="aspectFit" src="../../assets/cond_icon/100.png"></image>
-      <view class='textCenter'>{{item}}</view>
+    <view class='scrollChild' wx:for="{{hourly}}" wx:key="hourly" wx:for-index='i' wx:for-item='item'>
+      <view class='textCenter'>{{hours[i]}}</view>
+      <image class='scrollImg' mode="aspectFit" src="../../assets/cond_icon/{{item.cond_code}}.png"></image>
+      <view class='textCenter'>{{item.tmp}}</view>
     </view>
   </scroll-view>
 </view>
 
 <view wx:for="{{daily_forecast}}" wx:key="daily_forecast" wx:for-index="i" wx:for-item="item">
   <view class='forcast'>
-    <view class="forcastL textCenter">{{day[i]}}</view>
+    <view class="forcastL textCenter">{{days[i]}}</view>
     <image class="forcastImg" mode="aspectFit" src="../../assets/cond_icon/{{item.cond_code_d}}.png"></image>
     <view class="forcastC textCenter">{{item.cond_txt_d}}</view>
     <view class="forcastR textCenter">{{item.tmp_min}} / {{item.tmp_max}}</view>

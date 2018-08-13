@@ -94,7 +94,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        // console.log(res)
+        console.log(res)
         var temp = res.data.HeWeather6[0].now.tmp;//当前温度
         var cond_txt = res.data.HeWeather6[0].now.cond_txt;//实况天气状况描述
         var wind_sc = res.data.HeWeather6[0].now.wind_sc;//风力
@@ -108,6 +108,11 @@ Page({
         var cloud = res.data.HeWeather6[0].now.cloud;//云量
         //预报天气
         var daily_forecast = res.data.HeWeather6[0].daily_forecast;//三天内的预报
+        var days = daily_forecast.map(function(item) {
+          var time = new Date(item.date);
+          var day = (time.getMonth()+1) + '月' + time.getDate() + '日';
+          return day;
+        });
         that.setData({
           temp: temp,
           cond_txt: cond_txt,
@@ -119,7 +124,8 @@ Page({
             [["降雨概率", daily_forecast[0].pop+"%"], ["湿度", daily_forecast[0].hum+"%"]],
             [["风速", daily_forecast[0].wind_spd +"公里/小时"], ["体感温度", fl]],
             [["降水量", daily_forecast[0].pcpn+"毫米"], ["气压", daily_forecast[0].pres+"百帕"]],
-            [["能见度", daily_forecast[0].vis+"公里"], ["紫外线指数", daily_forecast[0].uv_index]]]
+            [["能见度", daily_forecast[0].vis+"公里"], ["紫外线指数", daily_forecast[0].uv_index]]],
+            days: days
         })
       },
       fail: function(res) {},
@@ -154,7 +160,16 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        // console.log(res)//暂时获取不到************************
+        console.log(res)
+        var hourly = res.data.HeWeather6[0].hourly;
+        var hours = hourly.map(function(item) {
+          return item.time.split(" ")[1];;
+        });
+        console.log(hours);
+        that.setData({
+          hourly: hourly,
+          hours: hours
+        })
       },
       fail: function(res) {},
       complete: function(res) {},

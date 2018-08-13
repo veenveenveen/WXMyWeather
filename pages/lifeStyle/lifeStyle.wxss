@@ -17,7 +17,7 @@
 .lifeCell {
   border: 1rpx solid lightgray;
   width: 50%;
-  height: 200rpx;
+  height: 220rpx;
   padding: 15rpx;
 }
 

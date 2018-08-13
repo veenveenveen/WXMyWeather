@@ -107,18 +107,18 @@
 
 .forcastL {
   /* border: 1rpx solid #eee; */
-  width: 110rpx;
+  width: 170rpx;
   height: 50rpx;
   text-align: left;
 }
 .forcastImg{
   /* border: 1rpx solid #eee; */
-  width: 190rpx;
+  width: 180rpx;
   height: 50rpx;
 }
 .forcastC {
   /* border: 1rpx solid #eee; */
-  width: 200rpx;
+  width: 150rpx;
   height: 50rpx;
 }
 .forcastR {
